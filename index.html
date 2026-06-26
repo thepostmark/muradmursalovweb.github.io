@@ -11,7 +11,7 @@
   │  1. Name ......... .brand (header) and footer                  │
   │  2. Intro ........ .hero h1 and .lede                          │
   │  3. Images ....... .media--img: <img src="work/file.jpg">      │
-  │  4. Video ........ YouTube iframe inside .media--video         │
+  │  4. Video ........ YouTube / Vimeo iframe inside .media--video │
   │  5. Email/social . .mail and .row2                             │
   │  GitHub Pages: save as index.html → Settings → Pages →         │
   │  Branch main /(root) → Save. Put media in a work/ folder.      │
@@ -267,7 +267,8 @@
     <article class="card" data-reveal>
       <div class="media media--img">
         <span class="badge">Procedural</span>
-        <img src="work/building-gen.png" alt="Procedural building generator" loading="lazy">
+        <!-- <img src="work/building-gen.jpg" alt="Procedural building generator" loading="lazy"> -->
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
       </div>
       <div class="card-body">
         <span class="num">03 — Procedural</span>
@@ -278,16 +279,17 @@
     </article>
 
     <article class="card span" data-reveal>
-      <div class="media media--img">
+      <div class="media media--video">
         <span class="badge">VFX</span>
-        <!-- <img src="work/vfx.jpg" alt="VFX work" loading="lazy"> -->
-        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+        <iframe src="https://player.vimeo.com/video/1071158692"
+                title="Aqua de Vida" allowfullscreen
+                allow="autoplay; fullscreen; picture-in-picture"></iframe>
       </div>
       <div class="card-body">
         <span class="num">04 — VFX</span>
-        <h3>Your VFX project</h3>
-        <p class="desc">Replace with one of your VFX or simulation pieces — short description here.</p>
-        <div class="specs"><span><b>DCC</b> Houdini</span><span><b>SHADERS</b> Custom</span></div>
+        <h3>Aqua de Vida</h3>
+        <p class="desc">Houdini Flip simulation with a usage of In-house tools. Inspired by Pirates of the Caribbean. Rendered in Mantra.</p>
+        <div class="specs"><span><b>DCC</b> Houdini</span><span><b>RENDER</b> Mantra</span></div>
       </div>
     </article>
   </div>
@@ -300,8 +302,8 @@
     <p>One hero video — your strongest cut.</p>
   </div>
   <div class="reel" data-reveal>
-    <!-- Put your reel here: paste your YouTube video ID below, then delete the .play block -->
-    <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Showreel" allowfullscreen></iframe> -->
+    <!-- Put your reel here: paste a YouTube or Vimeo embed iframe, then delete the .play block -->
+    <!-- <iframe src="https://player.vimeo.com/video/VIDEO_ID" title="Showreel" allowfullscreen></iframe> -->
     <div class="play">
       <div class="ring"><svg width="28" height="28" viewBox="0 0 24 24" fill="#05164D"><path d="M8 5v14l11-7z"/></svg></div>
       <span>Showreel — coming soon</span>
