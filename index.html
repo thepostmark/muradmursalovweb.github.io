@@ -121,6 +121,7 @@
 
   /* ── section heads ───────────────────────────────────────────── */
   .sec{ padding-block:clamp(70px,10vw,140px); }
+  .sec--tight{ padding-block:clamp(50px,7vw,90px); }
   .sec-head{ display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:54px; }
   .sec-head h2{ font-weight:600; font-size:clamp(2rem,4.6vw,3.4rem); letter-spacing:-.025em; line-height:1.04; max-width:18ch; }
   .sec-head p{ color:var(--muted); max-width:32ch; font-size:.98rem; }
@@ -221,8 +222,8 @@
     <span>Murad Mursalov</span>
   </div>
   <nav>
-    <a href="#work">Work</a>
     <a href="#stack">Software</a>
+    <a href="#work">Work</a>
     <a href="#reel">Reel</a>
     <a href="#caps">Skills</a>
     <a href="#contact">Contact</a>
@@ -265,6 +266,21 @@
     </div>
   </div>
   <span class="scrollcue">Scroll</span>
+</section>
+
+<!-- ════════════════════ SOFTWARE ════════════════════ -->
+<section class="sec sec--tight wrap" id="stack">
+  <div class="sec-head" data-reveal>
+    <h2>Software</h2>
+    <p>Tools I work with day to day.</p>
+  </div>
+  <div class="stack" data-reveal>
+    <div class="tool"><span class="ic">U</span><span class="tt"><b>Unity</b><span>XR / Realtime</span></span></div>
+    <div class="tool"><span class="ic">H</span><span class="tt"><b>Houdini</b><span>Procedural / VFX</span></span></div>
+    <div class="tool"><span class="ic">M</span><span class="tt"><b>Maya</b><span>Modelling and rendering in Arnold</span></span></div>
+    <div class="tool"><span class="ic">SP</span><span class="tt"><b>Substance Painter</b><span>Texturing</span></span></div>
+    <div class="tool"><span class="ic">N</span><span class="tt"><b>Nuke</b><span>Compositing</span></span></div>
+  </div>
 </section>
 
 <!-- ════════════════════ WORK ════════════════════ -->
@@ -387,11 +403,13 @@
       </div>
     </article>
 
-    <!-- NEW PROJECT 09 — Motion Capture (replace image + text) -->
+    <!-- NEW PROJECT 09 — Motion Capture (paste your YouTube ID instead of VIDEO_ID) -->
     <article class="card" data-reveal>
-      <div class="media media--img">
+      <div class="media media--video">
         <span class="badge">Mocap</span>
-        <img src="work/mocap.jpg" alt="Motion capture" loading="lazy">
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+                title="Motion Capture" allowfullscreen
+                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
       </div>
       <div class="card-body">
         <span class="num">09 — Motion Capture</span>
@@ -400,21 +418,6 @@
         <div class="specs"><span><b>TOOL</b> —</span><span><b>TYPE</b> Motion Capture</span></div>
       </div>
     </article>
-  </div>
-</section>
-
-<!-- ════════════════════ SOFTWARE ════════════════════ -->
-<section class="sec wrap" id="stack">
-  <div class="sec-head" data-reveal>
-    <h2>Software</h2>
-    <p>Tools I work with day to day.</p>
-  </div>
-  <div class="stack" data-reveal>
-    <div class="tool"><span class="ic">U</span><span class="tt"><b>Unity</b><span>XR / Realtime</span></span></div>
-    <div class="tool"><span class="ic">H</span><span class="tt"><b>Houdini</b><span>Procedural / VFX</span></span></div>
-    <div class="tool"><span class="ic">M</span><span class="tt"><b>Maya</b><span>Modelling and rendering in Arnold</span></span></div>
-    <div class="tool"><span class="ic">SP</span><span class="tt"><b>Substance Painter</b><span>Texturing</span></span></div>
-    <div class="tool"><span class="ic">N</span><span class="tt"><b>Nuke</b><span>Compositing</span></span></div>
   </div>
 </section>
 
