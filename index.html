@@ -10,9 +10,11 @@
   │  Change the TEXT BETWEEN TAGS, e.g. <span>NAME</span>.          │
   │  1. Name ......... .brand (header) and footer                  │
   │  2. Intro ........ .hero h1 and .lede                          │
-  │  3. Images ....... .media--img: <img src="work/file.jpg">      │
-  │  4. Video ........ YouTube / Vimeo iframe inside .media--video │
-  │  5. Email/social . .mail and .row2                             │
+  │  3. Stats ........ .stats (hero)                               │
+  │  4. Images ....... .media--img: <img src="work/file.jpg">      │
+  │  5. Video ........ YouTube / Vimeo iframe inside .media--video │
+  │  6. Software ..... .stack section                             │
+  │  7. Email/social . .mail and .row2                             │
   │  GitHub Pages: save as index.html → Settings → Pages →         │
   │  Branch main /(root) → Save. Put media in a work/ folder.      │
   └────────────────────────────────────────────────────────────────┘
@@ -98,7 +100,15 @@
     max-width:18ch; color:var(--navy);
   }
   .hero h1 b{ font-weight:700; }
-  .hero .lede{ margin-top:30px; max-width:50ch; font-size:clamp(1.05rem,1.5vw,1.3rem); color:#36405C; font-weight:400; }
+  .hero .lede{ margin-top:30px; max-width:62ch; font-size:clamp(1rem,1.3vw,1.12rem); color:#36405C; font-weight:400; }
+  .hero .lede + .lede{ margin-top:14px; }
+
+  /* stats row */
+  .stats{ margin-top:40px; display:flex; gap:clamp(28px,5vw,60px); flex-wrap:wrap; }
+  .stat{ display:flex; flex-direction:column; gap:2px; }
+  .stat .v{ font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; line-height:1; letter-spacing:-.02em; color:var(--navy); }
+  .stat .k{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+
   .cta-row{ margin-top:42px; display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
   .btn{ font-size:.9rem; font-weight:600; padding:15px 30px; border-radius:100px; transition:background .2s, color .2s, transform .15s, border-color .2s; }
   .btn--solid{ background:var(--navy); color:#fff; }
@@ -138,6 +148,18 @@
   .card-body .specs{ margin-top:6px; display:flex; gap:16px; flex-wrap:wrap; }
   .card-body .specs span{ font-family:var(--mono); font-size:.7rem; color:var(--muted); }
   .card-body .specs b{ color:var(--navy); font-weight:600; }
+
+  /* ── software / stack ────────────────────────────────────────── */
+  .stack{ display:flex; flex-wrap:wrap; gap:14px; }
+  .tool{ display:flex; align-items:center; gap:12px; padding:16px 22px; border:1px solid var(--line); border-radius:14px;
+    background:var(--paper); box-shadow:0 1px 2px rgba(5,22,77,.04), 0 10px 28px rgba(5,22,77,.05);
+    transition:transform .25s, box-shadow .3s, border-color .25s; }
+  .tool:hover{ transform:translateY(-3px); border-color:var(--sky); box-shadow:0 14px 32px rgba(5,22,77,.1); }
+  .tool .ic{ width:34px; height:34px; border-radius:8px; display:grid; place-items:center; flex:none;
+    background:var(--sky-pale); color:var(--navy); font-weight:700; font-size:.92rem; }
+  .tool .tt{ display:flex; flex-direction:column; line-height:1.2; }
+  .tool .tt b{ font-weight:600; font-size:1rem; }
+  .tool .tt span{ font-family:var(--mono); font-size:.66rem; letter-spacing:.06em; color:var(--muted); }
 
   /* ── reel ────────────────────────────────────────────────────── */
   .reel{ position:relative; aspect-ratio:21/9; overflow:hidden; border-radius:16px; background:linear-gradient(150deg,#0C2A6B,#05164D);
@@ -200,6 +222,7 @@
   </div>
   <nav>
     <a href="#work">Work</a>
+    <a href="#stack">Software</a>
     <a href="#reel">Reel</a>
     <a href="#caps">Skills</a>
     <a href="#contact">Contact</a>
@@ -216,10 +239,26 @@
     <span class="eyebrow">XR · Technical Art · Procedural Modelling & VFX</span>
     <h1>Where <b>VFX</b> meets <b>immersive worlds</b>.</h1>
     <p class="lede">
-I am Murad, an XR developer and technical artist with a background in Computer Graphics and Computer Science. I'm currently pursuing a Bachelor's degree in Augmented and Virtual Reality Design at Hochschule Darmstadt, where I focus on real-time XR development, procedural modelling, and interactive experience design.
-Before moving to Germany, I completed a Bachelor's in Applied Mathematics and Computer Science at Baku State University, and worked as a 3D generalist at ROG VFX, contributing to the production of the historical TV series Tagiev for a national television channel in Azerbaijan.
-My work spans VR and AR application development, technical art, procedural modelling in Houdini, and real-time rendering, always with a focus on performance and visual quality.
+      I'm Murad — an XR developer and technical artist with a background in computer graphics
+      and computer science. I'm currently pursuing a Bachelor's in Augmented and Virtual Reality
+      Design at Hochschule Darmstadt, focusing on real-time XR development, procedural modelling
+      and interactive experience design.
     </p>
+    <p class="lede">
+      Before moving to Germany I completed a Bachelor's in Applied Mathematics and Computer Science
+      at Baku State University and worked as a 3D generalist at ROG VFX, contributing to the historical
+      TV series <i>Tagiev</i> for national television in Azerbaijan. My work spans VR/AR development,
+      technical art, procedural modelling in Houdini and real-time rendering — always with a focus on
+      performance and visual quality.
+    </p>
+
+    <!-- STATS — edit numbers/labels below -->
+    <div class="stats">
+      <div class="stat"><span class="v">2021</span><span class="k">In VFX since</span></div>
+      <div class="stat"><span class="v">3</span><span class="k">Major projects</span></div>
+      <div class="stat"><span class="v">XR · VFX</span><span class="k">Focus</span></div>
+    </div>
+
     <div class="cta-row">
       <a class="btn btn--solid" href="#work">View work</a>
       <a class="btn btn--ghost" href="#contact">Get in touch</a>
@@ -260,7 +299,7 @@ My work spans VR and AR application development, technical art, procedural model
       </div>
       <div class="card-body">
         <span class="num">02 — AR · WIP</span>
-        <h3>Bloom (WORK IN PROGRESS)</h3>
+        <h3>Bloom (work in progress)</h3>
         <p class="desc">Android-based AR application in collaboration with the UNESCO Geopark in Odenwald.</p>
         <div class="specs"><span><b>PLATFORM</b> Android</span><span><b>TYPE</b> AR</span></div>
       </div>
@@ -293,6 +332,51 @@ My work spans VR and AR application development, technical art, procedural model
         <div class="specs"><span><b>DCC</b> Houdini</span><span><b>RENDER</b> Mantra</span></div>
       </div>
     </article>
+
+    <!-- NEW PROJECT 05 — replace media + text -->
+    <article class="card" data-reveal>
+      <div class="media media--img">
+        <span class="badge">Project</span>
+        <!-- <img src="work/project-05.jpg" alt="Project" loading="lazy"> -->
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg></div>
+      </div>
+      <div class="card-body">
+        <span class="num">05 — Replace me</span>
+        <h3>Project title</h3>
+        <p class="desc">Short description of this project goes here.</p>
+        <div class="specs"><span><b>TOOL</b> —</span><span><b>TYPE</b> —</span></div>
+      </div>
+    </article>
+
+    <!-- NEW PROJECT 06 — replace media + text -->
+    <article class="card" data-reveal>
+      <div class="media media--img">
+        <span class="badge">Project</span>
+        <!-- <img src="work/project-06.jpg" alt="Project" loading="lazy"> -->
+        <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="1"/><circle cx="8.5" cy="10" r="1.6"/><path d="M3 17l5-4 4 3 3-2 6 5"/></svg></div>
+      </div>
+      <div class="card-body">
+        <span class="num">06 — Replace me</span>
+        <h3>Project title</h3>
+        <p class="desc">Short description of this project goes here.</p>
+        <div class="specs"><span><b>TOOL</b> —</span><span><b>TYPE</b> —</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ════════════════════ SOFTWARE ════════════════════ -->
+<section class="sec wrap" id="stack">
+  <div class="sec-head" data-reveal>
+    <h2>Software</h2>
+    <p>Tools I work with day to day.</p>
+  </div>
+  <div class="stack" data-reveal>
+    <div class="tool"><span class="ic">U</span><span class="tt"><b>Unity</b><span>XR / Realtime</span></span></div>
+    <div class="tool"><span class="ic">H</span><span class="tt"><b>Houdini</b><span>Procedural / VFX</span></span></div>
+    <div class="tool"><span class="ic">M</span><span class="tt"><b>Maya</b><span>Modelling</span></span></div>
+    <div class="tool"><span class="ic">SP</span><span class="tt"><b>Substance Painter</b><span>Texturing</span></span></div>
+    <div class="tool"><span class="ic">N</span><span class="tt"><b>Nuke</b><span>Compositing</span></span></div>
   </div>
 </section>
 
