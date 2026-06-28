@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Bear Lab — Murad Mursalov</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#05164D; --navy-2:#0C2A6B; --sky:#2E6FD6; --sky-pale:#DCEBF8;
+    --paper:#FFFFFF; --grey:#F3F6FA; --line:#E2E8F1; --muted:#5B6478; --faint:#98A1B4;
+    --sans:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+    --pad:clamp(20px,5vw,88px); --maxw:980px;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--paper); color:var(--navy); font-family:var(--sans); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--sky); color:#fff; }
+  :focus-visible{ outline:2px solid var(--sky); outline-offset:3px; }
+  .wrap{ max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+
+  /* header */
+  header{ position:fixed; inset:0 0 auto 0; z-index:60; display:flex; align-items:center; justify-content:space-between;
+    padding:0 var(--pad); height:66px; background:rgba(255,255,255,.8); backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid var(--line); }
+  .brand{ display:flex; align-items:center; gap:11px; font-weight:700; font-size:1.06rem; letter-spacing:-.01em; }
+  .emblem{ width:28px; height:28px; flex:none; }
+  .back{ font-family:var(--mono); font-size:.78rem; letter-spacing:.06em; color:var(--muted); transition:color .2s; }
+  .back:hover{ color:var(--navy); }
+
+  /* hero */
+  .case-hero{ padding:128px 0 40px; background:linear-gradient(180deg,#E6F0FA,var(--paper)); }
+  .eyebrow{ font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--sky);
+    display:inline-flex; align-items:center; gap:.7em; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:24px; height:2px; background:var(--sky); }
+  .case-hero h1{ font-weight:700; font-size:clamp(2.2rem,6vw,4rem); line-height:1.04; letter-spacing:-.03em; }
+  .case-hero .sub{ margin-top:18px; max-width:60ch; font-size:clamp(1.02rem,1.4vw,1.18rem); color:#36405C; }
+  .meta-row{ margin-top:26px; display:flex; gap:30px; flex-wrap:wrap; }
+  .meta-row .m{ display:flex; flex-direction:column; gap:3px; }
+  .meta-row .m b{ font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+  .meta-row .m span{ font-weight:600; font-size:.96rem; }
+
+  /* video */
+  .video-frame{ margin:36px 0; aspect-ratio:16/9; border-radius:16px; overflow:hidden; box-shadow:0 24px 60px rgba(5,22,77,.18); background:#000; }
+  .video-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
+  /* body content */
+  .case-body{ padding-bottom:clamp(70px,10vw,130px); }
+  .case-body h2{ font-weight:600; font-size:clamp(1.4rem,3vw,2rem); letter-spacing:-.02em; margin:48px 0 14px; }
+  .case-body p{ color:#33384A; margin-bottom:16px; }
+  .case-body p strong{ color:var(--navy); font-weight:600; }
+  .case-body ul{ list-style:none; margin:8px 0 16px; }
+  .case-body li{ position:relative; padding-left:22px; margin-bottom:10px; color:#33384A; }
+  .case-body li::before{ content:""; position:absolute; left:0; top:.7em; width:8px; height:8px; border-radius:50%; background:var(--sky); }
+
+  .specs-box{ margin-top:30px; padding:24px 26px; border:1px solid var(--line); border-radius:16px; background:var(--grey);
+    display:flex; gap:30px; flex-wrap:wrap; }
+  .specs-box .s{ display:flex; flex-direction:column; gap:3px; }
+  .specs-box .s b{ font-family:var(--mono); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+  .specs-box .s span{ font-weight:600; font-size:.95rem; }
+
+  .case-nav{ margin-top:60px; padding-top:30px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .case-nav a{ font-family:var(--mono); font-size:.8rem; letter-spacing:.06em; color:var(--muted); transition:color .2s; }
+  .case-nav a:hover{ color:var(--navy); }
+
+  footer{ border-top:1px solid var(--line); padding:26px var(--pad) 40px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--mono); font-size:.7rem; color:var(--faint); letter-spacing:.06em; }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <a class="brand" href="../index.html">
+    <svg class="emblem" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#05164D" stroke-width="2"/>
+      <path d="M11 25 Q20 6 29 25" fill="none" stroke="#2E6FD6" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="20" cy="20" r="3" fill="#05164D"/>
+    </svg>
+    <span>Murad Mursalov</span>
+  </a>
+  <a class="back" href="../index.html#work">← Back to work</a>
+</header>
+
+<section class="case-hero wrap">
+  <span class="eyebrow">01 — VR · Technical Art</span>
+  <h1>Water Bear Lab</h1>
+  <p class="sub">An educational VR experience built in collaboration with the Senckenberg Naturmuseum in Frankfurt, centered on tardigrades (water bears).</p>
+  <div class="meta-row">
+    <div class="m"><b>Role</b><span>Technical Artist</span></div>
+    <div class="m"><b>Engine</b><span>Unity 6</span></div>
+    <div class="m"><b>Platform</b><span>Meta Quest</span></div>
+    <div class="m"><b>Type</b><span>Educational VR</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="video-frame">
+    <iframe src="https://www.youtube.com/embed/Va4yFDe0PnI"
+            title="Water Bear Lab — Trailer" allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+  </div>
+</section>
+
+<section class="case-body wrap">
+  <h2>Overview</h2>
+  <p>Water Bear Lab is a laboratory-based VR experience centered on water bears, developed in collaboration with the <strong>Senckenberg Naturmuseum in Frankfurt</strong> as an educational application. Users step into a virtual lab and perform a set of test interactions on a water bear specimen, exposing it to extreme conditions and observing how the system responds within defined limits.</p>
+  <p>The experience is designed to be forgiving and exploratory: tests can be completed in any order, progress is always recoverable, and incorrect or experimental actions never permanently break the system — encouraging curiosity over fear of "doing it wrong".</p>
+
+  <h2>What the experience does</h2>
+  <ul>
+    <li>A set of lab test interactions that expose a water bear specimen to extreme conditions.</li>
+    <li>Real-time system responses kept within defined, safe limits.</li>
+    <li>Non-linear flow — tests can be completed in any order.</li>
+    <li>Recoverable progress, so exploratory or incorrect actions never break the experience.</li>
+  </ul>
+
+  <h2>My role</h2>
+  <p>I worked as the <strong>Technical Artist</strong> on the project — the bridge between the programmer, the designer and the experience itself. My responsibilities spanned both the engineering and the visual sides:</p>
+  <ul>
+    <li>Implementing and optimizing the interactions.</li>
+    <li>Creating the 3D models, VFX and shaders.</li>
+    <li>Defining and unifying the overall look of the experience.</li>
+    <li>Translating design intent into a performant, polished result on standalone hardware.</li>
+  </ul>
+
+  <div class="specs-box">
+    <div class="s"><b>Engine</b><span>Unity 6</span></div>
+    <div class="s"><b>Platform</b><span>Meta Quest</span></div>
+    <div class="s"><b>Role</b><span>Technical Artist</span></div>
+    <div class="s"><b>Partner</b><span>Senckenberg Naturmuseum</span></div>
+    <div class="s"><b>Skills</b><span>Interactions · Models · VFX · Shaders · Look Dev</span></div>
+  </div>
+
+  <div class="case-nav">
+    <a href="../index.html#work">← Back to all projects</a>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 — Murad Mursalov</span>
+  <span><a href="../index.html">Home</a></span>
+</footer>
+
+</body>
+</html>
