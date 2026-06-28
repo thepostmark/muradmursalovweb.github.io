@@ -102,9 +102,10 @@
   .hero h1 b{ font-weight:700; }
   .hero .lede{ margin-top:30px; max-width:62ch; font-size:clamp(1rem,1.3vw,1.12rem); color:#36405C; font-weight:400; }
   .hero .lede + .lede{ margin-top:14px; }
+  .hero .location{ margin-top:18px; font-family:var(--mono); font-size:.8rem; letter-spacing:.06em; color:var(--sky); font-weight:500; }
 
   /* stats row */
-  .stats{ margin-top:40px; display:flex; gap:clamp(28px,5vw,60px); flex-wrap:wrap; }
+  .stats{ margin-top:36px; display:flex; gap:clamp(28px,5vw,60px); flex-wrap:wrap; }
   .stat{ display:flex; flex-direction:column; gap:2px; }
   .stat .v{ font-size:clamp(1.8rem,4vw,2.6rem); font-weight:700; line-height:1; letter-spacing:-.02em; color:var(--navy); }
   .stat .k{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
@@ -190,6 +191,7 @@
   .contact .eyebrow{ justify-content:center; display:inline-flex; }
   .contact h2{ font-weight:300; font-size:clamp(2.2rem,7vw,5.4rem); line-height:1; letter-spacing:-.03em; margin:22px 0 8px; }
   .contact h2 b{ font-weight:700; }
+  .contact .loc{ margin-top:6px; color:var(--muted); font-family:var(--mono); font-size:.8rem; letter-spacing:.06em; }
   .contact .mail{ display:inline-block; margin-top:18px; font-size:clamp(1.1rem,2.6vw,1.7rem); font-weight:600; border-bottom:2px solid var(--sky); padding-bottom:5px; }
   .contact .mail:hover{ color:var(--sky); }
   .row2{ margin-top:36px; display:flex; justify-content:center; gap:12px; flex-wrap:wrap; }
@@ -222,8 +224,8 @@
     <span>Murad Mursalov</span>
   </div>
   <nav>
-    <a href="#stack">Software</a>
     <a href="#work">Work</a>
+    <a href="#stack">Software</a>
     <a href="#reel">Reel</a>
     <a href="#caps">Skills</a>
     <a href="#contact">Contact</a>
@@ -253,6 +255,8 @@
       performance and visual quality.
     </p>
 
+    <p class="location">Based in Darmstadt, Germany · Open to internships &amp; junior roles</p>
+
     <!-- STATS — edit numbers/labels below -->
     <div class="stats">
       <div class="stat"><span class="v">2021</span><span class="k">In VFX since</span></div>
@@ -266,21 +270,6 @@
     </div>
   </div>
   <span class="scrollcue">Scroll</span>
-</section>
-
-<!-- ════════════════════ SOFTWARE ════════════════════ -->
-<section class="sec sec--tight wrap" id="stack">
-  <div class="sec-head" data-reveal>
-    <h2>Software</h2>
-    <p>Tools I work with day to day.</p>
-  </div>
-  <div class="stack" data-reveal>
-    <div class="tool"><span class="ic">U</span><span class="tt"><b>Unity</b><span>XR / Realtime</span></span></div>
-    <div class="tool"><span class="ic">H</span><span class="tt"><b>Houdini</b><span>Procedural / VFX</span></span></div>
-    <div class="tool"><span class="ic">M</span><span class="tt"><b>Maya</b><span>Modelling and rendering in Arnold</span></span></div>
-    <div class="tool"><span class="ic">SP</span><span class="tt"><b>Substance Painter</b><span>Texturing</span></span></div>
-    <div class="tool"><span class="ic">N</span><span class="tt"><b>Nuke</b><span>Compositing</span></span></div>
-  </div>
 </section>
 
 <!-- ════════════════════ WORK ════════════════════ -->
@@ -421,6 +410,21 @@
   </div>
 </section>
 
+<!-- ════════════════════ SOFTWARE ════════════════════ -->
+<section class="sec sec--tight wrap" id="stack">
+  <div class="sec-head" data-reveal>
+    <h2>Software</h2>
+    <p>Tools I work with day to day.</p>
+  </div>
+  <div class="stack" data-reveal>
+    <div class="tool"><span class="ic">U</span><span class="tt"><b>Unity</b><span>XR / Realtime</span></span></div>
+    <div class="tool"><span class="ic">H</span><span class="tt"><b>Houdini</b><span>Procedural / VFX</span></span></div>
+    <div class="tool"><span class="ic">M</span><span class="tt"><b>Maya</b><span>Modelling and rendering in Arnold</span></span></div>
+    <div class="tool"><span class="ic">SP</span><span class="tt"><b>Substance Painter</b><span>Texturing</span></span></div>
+    <div class="tool"><span class="ic">N</span><span class="tt"><b>Nuke</b><span>Compositing</span></span></div>
+  </div>
+</section>
+
 <!-- ════════════════════ REEL ════════════════════ -->
 <section class="sec wrap" id="reel">
   <div class="sec-head" data-reveal>
@@ -458,6 +462,7 @@
   <div class="contact-inner wrap" data-reveal>
     <span class="eyebrow">Open to work</span>
     <h2>Contact me.</h2>
+    <p class="loc">Based in Darmstadt, Germany</p>
     <!-- EMAIL — change both the link text and the address after mailto: -->
     <a class="mail" href="mailto:m.urik.m160@gmail.com">m.urik.m160@gmail.com</a>
     <!-- SOCIAL — put your links in href="" -->
