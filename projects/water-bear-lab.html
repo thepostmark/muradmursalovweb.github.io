@@ -58,18 +58,6 @@
   .case-body li::before{ content:""; position:absolute; left:0; top:.7em; width:8px; height:8px; border-radius:50%; background:var(--sky); }
   .case-body .doc-link{ color:var(--sky); border-bottom:1px solid var(--sky); }
 
-  /* research two-column layout (text + side images) */
-  .research-grid{ display:grid; grid-template-columns:1.3fr 1fr; gap:36px; align-items:start; }
-  @media(max-width:820px){ .research-grid{ grid-template-columns:1fr; gap:20px; } }
-  .research-shots{ display:flex; flex-direction:column; gap:18px; position:sticky; top:90px; }
-  .research-shots figure{ display:flex; flex-direction:column; gap:7px; }
-  .research-shots .cap{ font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--sky); }
-  .research-shots .imgbox{ aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:var(--grey);
-    box-shadow:0 1px 2px rgba(5,22,77,.04), 0 12px 30px rgba(5,22,77,.06); }
-  .research-shots img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
-  .research-shots figure:hover img{ transform:scale(1.05); }
-  @media(max-width:820px){ .research-shots{ position:static; flex-direction:row; flex-wrap:wrap; } .research-shots figure{ flex:1 1 30%; } }
-
   /* gallery */
   .gallery-block{ margin-top:40px; }
   .gallery-block h3{ font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sky); margin-bottom:16px; }
@@ -147,38 +135,20 @@
   <p>The experience is designed to be forgiving and exploratory. Tests can be completed in any order, progress is always recoverable, and incorrect or experimental actions never permanently break the system. The goal was to encourage curiosity instead of the fear of "doing it wrong", so that visitors feel free to try, fail, and try again.</p>
 
   <h2>Research</h2>
-  <div class="research-grid">
-    <div class="research-text">
-      <p>The project started with field research at the museum. We spent time on site observing visitors, watching how they moved through the space and what caught their attention, and used those observations to define our audience and target group.</p>
-      <p>Based on that, we chose <strong>three candidate topics</strong> for the final experience: <strong>Armadillos &amp; Pangolins</strong>, <strong>Penguins</strong> and <strong>Water Bears</strong>. Across several further rounds of research we tested each one, dropped two of them, and kept <strong>tardigrades (water bears)</strong> as the strongest direction. By the end of the process we had gone deep enough into the subject to feel almost like experts on it.</p>
-      <p>To get there, we worked through several project stages and applied a wide range of design research methods. These included, among others:</p>
-      <ul>
-        <li><strong>On-site observation</strong> of museum visitors and their behaviour.</li>
-        <li><strong>Topic research</strong> into each of the three candidate themes.</li>
-        <li><strong>"Why, why, why" and "how"</strong> questioning to reach the underlying needs.</li>
-        <li><strong>Emotional journey mapping.</strong></li>
-        <li><strong>Personas.</strong></li>
-        <li><strong>Affinity maps.</strong></li>
-        <li><strong>Six thinking hats.</strong></li>
-      </ul>
-      <p>And many more methods beyond the ones listed here. Together they helped us surface the potential problems of each topic, its strengths and weaknesses, and the opportunities and interesting angles it offered. That comparison is what ultimately guided the final choice of tardigrades.</p>
-      <p>The full research process, every method, all of the research results, the presentations and more is documented in the <a class="doc-link" href="../work/wblab/3_Documentation_Appendices.pdf" target="_blank" rel="noopener">Documentation Appendices</a>.</p>
-    </div>
-    <div class="research-shots">
-      <figure>
-        <span class="cap">Armadillos &amp; Pangolins</span>
-        <div class="imgbox"><img src="../work/wblab/research-armadillo.jpg" alt="Armadillos and pangolins research" loading="lazy"></div>
-      </figure>
-      <figure>
-        <span class="cap">Penguins</span>
-        <div class="imgbox"><img src="../work/wblab/research-penguin.jpg" alt="Penguins research" loading="lazy"></div>
-      </figure>
-      <figure>
-        <span class="cap">Water Bears</span>
-        <div class="imgbox"><img src="../work/wblab/research-waterbear.jpg" alt="Water bears research" loading="lazy"></div>
-      </figure>
-    </div>
-  </div>
+  <p>The project started with field research at the museum. We spent time on site observing visitors, watching how they moved through the space and what caught their attention, and used those observations to define our audience and target group.</p>
+  <p>Based on that, we chose <strong>three candidate topics</strong> for the final experience: <strong>Armadillos &amp; Pangolins</strong>, <strong>Penguins</strong> and <strong>Water Bears</strong>. Across several further rounds of research we tested each one, dropped two of them, and kept <strong>tardigrades (water bears)</strong> as the strongest direction. By the end of the process we had gone deep enough into the subject to feel almost like experts on it.</p>
+  <p>To get there, we worked through several project stages and applied a wide range of design research methods. These included, among others:</p>
+  <ul>
+    <li><strong>On-site observation</strong> of museum visitors and their behaviour.</li>
+    <li><strong>Topic research</strong> into each of the three candidate themes.</li>
+    <li><strong>"Why, why, why" and "how"</strong> questioning to reach the underlying needs.</li>
+    <li><strong>Emotional journey mapping.</strong></li>
+    <li><strong>Personas.</strong></li>
+    <li><strong>Affinity maps.</strong></li>
+    <li><strong>Six thinking hats.</strong></li>
+  </ul>
+  <p>And many more methods beyond the ones listed here. Together they helped us surface the potential problems of each topic, its strengths and weaknesses, and the opportunities and interesting angles it offered. That comparison is what ultimately guided the final choice of tardigrades.</p>
+  <p>The full research process, every method, all of the research results, the presentations and more is documented in the <a class="doc-link" href="../work/wblab/3_Documentation_Appendices.pdf" target="_blank" rel="noopener">Documentation Appendices</a>.</p>
 
   <!-- ── GALLERY 1 ──────────────────────────────────────────── -->
   <div class="gallery-block">
@@ -229,6 +199,19 @@
   <h2>Outcome</h2>
   <p>Testing of the project returned mostly positive results. Users responded well to the <strong>visual style</strong>, the <strong>narrative</strong>, the <strong>usability</strong> and the fun, engaging nature of the interactions, and they appreciated the <strong>unusual concept</strong> behind the experience. Overall the feedback confirmed that the lab format and the choice of tardigrades resonated with visitors and made an unfamiliar topic approachable and memorable.</p>
 
+  <!-- ── GALLERY 3 — drop any extra project photos here ───────── -->
+  <div class="gallery-block">
+    <h3>More from the project</h3>
+    <div class="gallery">
+      <figure><img src="../work/wblab/extra-1.jpg" alt="Project photo 1" loading="lazy"></figure>
+      <figure><img src="../work/wblab/extra-2.jpg" alt="Project photo 2" loading="lazy"></figure>
+      <figure><img src="../work/wblab/extra-3.jpg" alt="Project photo 3" loading="lazy"></figure>
+      <figure><img src="../work/wblab/extra-4.jpg" alt="Project photo 4" loading="lazy"></figure>
+      <figure><img src="../work/wblab/extra-5.jpg" alt="Project photo 5" loading="lazy"></figure>
+      <figure><img src="../work/wblab/extra-6.jpg" alt="Project photo 6" loading="lazy"></figure>
+    </div>
+  </div>
+
   <div class="specs-box">
     <div class="s"><b>Engine</b><span>Unity 6</span></div>
     <div class="s"><b>Platform</b><span>Meta Quest</span></div>
@@ -248,7 +231,5 @@
   <span><a href="../index.html">Home</a></span>
 </footer>
 
-</body>
-</html>
 </body>
 </html>
