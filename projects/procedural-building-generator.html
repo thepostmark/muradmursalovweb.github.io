@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Procedural Building Generator — Murad Mursalov</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy:#05164D; --navy-2:#0C2A6B; --sky:#2E6FD6; --sky-pale:#DCEBF8;
+    --paper:#FFFFFF; --grey:#F3F6FA; --line:#E2E8F1; --muted:#5B6478; --faint:#98A1B4;
+    --sans:'Inter',sans-serif; --mono:'JetBrains Mono',monospace;
+    --pad:clamp(20px,5vw,88px); --maxw:1040px;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--paper); color:var(--navy); font-family:var(--sans); font-size:16px; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+  ::selection{ background:var(--sky); color:#fff; }
+  :focus-visible{ outline:2px solid var(--sky); outline-offset:3px; }
+  .wrap{ max-width:var(--maxw); margin-inline:auto; padding-inline:var(--pad); }
+
+  header{ position:fixed; inset:0 0 auto 0; z-index:60; display:flex; align-items:center; justify-content:space-between;
+    padding:0 var(--pad); height:66px; background:rgba(255,255,255,.8); backdrop-filter:saturate(160%) blur(12px); border-bottom:1px solid var(--line); }
+  .brand{ display:flex; align-items:center; gap:11px; font-weight:700; font-size:1.06rem; letter-spacing:-.01em; }
+  .emblem{ width:28px; height:28px; flex:none; }
+  .back{ font-family:var(--mono); font-size:.78rem; letter-spacing:.06em; color:var(--muted); transition:color .2s; }
+  .back:hover{ color:var(--navy); }
+
+  .case-hero{ padding:128px 0 50px; background:linear-gradient(180deg,#CFE4F7 0%,#E6F0FA 50%,var(--paper) 100%); }
+  .eyebrow{ font-family:var(--mono); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:var(--sky);
+    display:inline-flex; align-items:center; gap:.7em; margin-bottom:22px; }
+  .eyebrow::before{ content:""; width:24px; height:2px; background:var(--sky); }
+  .case-hero h1{ font-weight:700; font-size:clamp(2.2rem,6vw,4rem); line-height:1.04; letter-spacing:-.03em; }
+  .case-hero .sub{ margin-top:18px; max-width:60ch; font-size:clamp(1.02rem,1.4vw,1.18rem); color:#36405C; }
+  .meta-row{ margin-top:26px; display:flex; gap:30px; flex-wrap:wrap; }
+  .meta-row .m{ display:flex; flex-direction:column; gap:3px; }
+  .meta-row .m b{ font-family:var(--mono); font-size:.66rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+  .meta-row .m span{ font-weight:600; font-size:.96rem; }
+
+  .video-frame{ margin:36px 0; aspect-ratio:16/9; border-radius:16px; overflow:hidden; box-shadow:0 24px 60px rgba(5,22,77,.18); background:#000; }
+  .video-frame iframe{ width:100%; height:100%; border:0; display:block; }
+
+  .case-body{ padding-bottom:clamp(70px,10vw,130px); }
+  .case-body h2{ font-weight:600; font-size:clamp(1.4rem,3vw,2rem); letter-spacing:-.02em; margin:48px 0 14px; }
+  .case-body p{ color:#33384A; margin-bottom:16px; }
+  .case-body p strong{ color:var(--navy); font-weight:600; }
+  .case-body ul{ list-style:none; margin:8px 0 16px; }
+  .case-body li{ position:relative; padding-left:22px; margin-bottom:10px; color:#33384A; }
+  .case-body li::before{ content:""; position:absolute; left:0; top:.7em; width:8px; height:8px; border-radius:50%; background:var(--sky); }
+
+  .gallery-block{ margin-top:40px; }
+  .gallery-block h3{ font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sky); margin-bottom:16px; }
+  .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  @media(max-width:680px){ .gallery{ grid-template-columns:1fr 1fr; } }
+  .gallery figure{ aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:var(--grey);
+    box-shadow:0 1px 2px rgba(5,22,77,.04), 0 12px 30px rgba(5,22,77,.06); }
+  .gallery img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+  .gallery figure:hover img{ transform:scale(1.05); }
+
+  .stack{ display:flex; flex-wrap:wrap; gap:14px; margin-top:6px; }
+  .tool{ display:flex; align-items:center; gap:12px; padding:14px 20px; border:1px solid var(--line); border-radius:14px;
+    background:var(--paper); box-shadow:0 1px 2px rgba(5,22,77,.04), 0 10px 28px rgba(5,22,77,.05);
+    transition:transform .25s, box-shadow .3s, border-color .25s; }
+  .tool:hover{ transform:translateY(-3px); border-color:var(--sky); box-shadow:0 14px 32px rgba(5,22,77,.1); }
+  .tool .ic{ width:34px; height:34px; border-radius:8px; display:grid; place-items:center; flex:none;
+    background:var(--sky-pale); color:var(--navy); font-weight:700; font-size:.9rem; }
+  .tool .tt{ display:flex; flex-direction:column; line-height:1.2; }
+  .tool .tt b{ font-weight:600; font-size:1rem; }
+  .tool .tt span{ font-family:var(--mono); font-size:.66rem; letter-spacing:.06em; color:var(--muted); }
+
+  .specs-box{ margin-top:34px; padding:24px 26px; border:1px solid var(--line); border-radius:16px; background:var(--grey);
+    display:flex; gap:30px; flex-wrap:wrap; }
+  .specs-box .s{ display:flex; flex-direction:column; gap:3px; }
+  .specs-box .s b{ font-family:var(--mono); font-size:.64rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+  .specs-box .s span{ font-weight:600; font-size:.95rem; }
+
+  .case-nav{ margin-top:60px; padding-top:30px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+  .case-nav a{ font-family:var(--mono); font-size:.8rem; letter-spacing:.06em; color:var(--muted); transition:color .2s; }
+  .case-nav a:hover{ color:var(--navy); }
+
+  footer{ border-top:1px solid var(--line); padding:26px var(--pad) 40px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--mono); font-size:.7rem; color:var(--faint); letter-spacing:.06em; }
+</style>
+</head>
+<body id="top">
+
+<header>
+  <a class="brand" href="../index.html">
+    <svg class="emblem" viewBox="0 0 40 40" aria-hidden="true">
+      <circle cx="20" cy="20" r="19" fill="none" stroke="#05164D" stroke-width="2"/>
+      <path d="M11 25 Q20 6 29 25" fill="none" stroke="#2E6FD6" stroke-width="2.4" stroke-linecap="round"/>
+      <circle cx="20" cy="20" r="3" fill="#05164D"/>
+    </svg>
+    <span>Murad Mursalov</span>
+  </a>
+  <a class="back" href="../index.html#work">← Back to work</a>
+</header>
+
+<section class="case-hero">
+ <div class="wrap">
+  <span class="eyebrow">03 — Procedural · Houdini</span>
+  <h1>Procedural Building Generator</h1>
+  <p class="sub">A fully editable and extensible procedural building generator built in Houdini, designed for large-scale scenes.</p>
+  <div class="meta-row">
+    <div class="m"><b>Role</b><span>Procedural Artist</span></div>
+    <div class="m"><b>Software</b><span>Houdini</span></div>
+    <div class="m"><b>Type</b><span>Procedural / Tools</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="wrap">
+  <div class="video-frame">
+    <!-- Paste your Vimeo number instead of VIDEO_ID -->
+    <iframe src="https://player.vimeo.com/video/VIDEO_ID"
+            title="Procedural Building Generator" allowfullscreen
+            allow="autoplay; fullscreen; picture-in-picture"></iframe>
+  </div>
+</section>
+
+<section class="case-body wrap">
+  <h2>Overview</h2>
+  <p>This project is a <strong>fully editable and extensible procedural building generator</strong> built in Houdini. Almost everything about the generated buildings can be changed and added to — including the overall shapes, proportions, structure and details — which makes it suitable for quickly populating large-scale scenes with varied, controllable architecture.</p>
+  <p>Instead of modelling buildings by hand one by one, the system lets you drive the result through parameters: adjust a few controls and the whole building updates, while new modules and rules can be plugged in to extend what it can produce.</p>
+
+  <h2>Key features</h2>
+  <ul>
+    <li>Fully editable — shapes, proportions and details can all be changed.</li>
+    <li>Extensible — new modules and rules can be added to grow the system.</li>
+    <li>Built for scale — designed to fill large scenes with varied buildings.</li>
+    <li>Parameter-driven — the whole building updates from a set of controls.</li>
+  </ul>
+
+  <!-- ── GALLERY — drop 4–5 project photos here ──────────────── -->
+  <div class="gallery-block">
+    <h3>Gallery</h3>
+    <div class="gallery">
+      <figure><img src="../work/generator/gen-1.jpg" alt="Procedural building 1" loading="lazy"></figure>
+      <figure><img src="../work/generator/gen-2.jpg" alt="Procedural building 2" loading="lazy"></figure>
+      <figure><img src="../work/generator/gen-3.jpg" alt="Procedural building 3" loading="lazy"></figure>
+      <figure><img src="../work/generator/gen-4.jpg" alt="Procedural building 4" loading="lazy"></figure>
+      <figure><img src="../work/generator/gen-5.jpg" alt="Procedural building 5" loading="lazy"></figure>
+    </div>
+  </div>
+
+  <h2>Software used</h2>
+  <div class="stack">
+    <div class="tool"><span class="ic">H</span><span class="tt"><b>Houdini</b><span>Procedural / Tools</span></span></div>
+  </div>
+
+  <div class="specs-box">
+    <div class="s"><b>Software</b><span>Houdini</span></div>
+    <div class="s"><b>Role</b><span>Procedural Artist</span></div>
+    <div class="s"><b>Type</b><span>Procedural Tool</span></div>
+    <div class="s"><b>Focus</b><span>Editable · Extensible · Large-scale</span></div>
+  </div>
+
+  <div class="case-nav">
+    <a href="../index.html#work">← Back to all projects</a>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 — Murad Mursalov</span>
+  <span><a href="../index.html">Home</a></span>
+</footer>
+
+</body>
+</html>
