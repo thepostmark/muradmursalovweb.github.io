@@ -56,6 +56,7 @@
   .case-body ul{ list-style:none; margin:8px 0 16px; }
   .case-body li{ position:relative; padding-left:22px; margin-bottom:10px; color:#33384A; }
   .case-body li::before{ content:""; position:absolute; left:0; top:.7em; width:8px; height:8px; border-radius:50%; background:var(--sky); }
+  .case-body .doc-link{ color:var(--sky); border-bottom:1px solid var(--sky); }
 
   /* gallery */
   .gallery-block{ margin-top:40px; }
@@ -66,6 +67,18 @@
     box-shadow:0 1px 2px rgba(5,22,77,.04), 0 12px 30px rgba(5,22,77,.06); }
   .gallery img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
   .gallery figure:hover img{ transform:scale(1.05); }
+
+  /* software stack */
+  .stack{ display:flex; flex-wrap:wrap; gap:14px; margin-top:6px; }
+  .tool{ display:flex; align-items:center; gap:12px; padding:14px 20px; border:1px solid var(--line); border-radius:14px;
+    background:var(--paper); box-shadow:0 1px 2px rgba(5,22,77,.04), 0 10px 28px rgba(5,22,77,.05);
+    transition:transform .25s, box-shadow .3s, border-color .25s; }
+  .tool:hover{ transform:translateY(-3px); border-color:var(--sky); box-shadow:0 14px 32px rgba(5,22,77,.1); }
+  .tool .ic{ width:34px; height:34px; border-radius:8px; display:grid; place-items:center; flex:none;
+    background:var(--sky-pale); color:var(--navy); font-weight:700; font-size:.9rem; }
+  .tool .tt{ display:flex; flex-direction:column; line-height:1.2; }
+  .tool .tt b{ font-weight:600; font-size:1rem; }
+  .tool .tt span{ font-family:var(--mono); font-size:.66rem; letter-spacing:.06em; color:var(--muted); }
 
   .specs-box{ margin-top:34px; padding:24px 26px; border:1px solid var(--line); border-radius:16px; background:var(--grey);
     display:flex; gap:30px; flex-wrap:wrap; }
@@ -119,7 +132,22 @@
 <section class="case-body wrap">
   <h2>Overview</h2>
   <p>Water Bear Lab is a laboratory-based VR experience centered on water bears, developed in collaboration with the <strong>Senckenberg Naturmuseum in Frankfurt</strong> as an educational application. Users step into a virtual lab and perform a set of test interactions on a water bear specimen, exposing it to extreme conditions and observing how the system responds within defined limits.</p>
-  <p>The experience is designed to be forgiving and exploratory: tests can be completed in any order, progress is always recoverable, and incorrect or experimental actions never permanently break the system, encouraging curiosity over fear of "doing it wrong".</p>
+  <p>The experience is designed to be forgiving and exploratory. Tests can be completed in any order, progress is always recoverable, and incorrect or experimental actions never permanently break the system. The goal was to encourage curiosity instead of the fear of "doing it wrong", so that visitors feel free to try, fail, and try again.</p>
+
+  <h2>Research</h2>
+  <p>The project started with field research at the museum. We spent time on site observing visitors, watching how they moved through the space and what caught their attention, and used those observations to define our audience and target group.</p>
+  <p>Based on that, we chose <strong>three candidate topics</strong> for the final experience. Across several further rounds of research we tested each one, dropped two of them, and kept <strong>tardigrades (water bears)</strong> as the strongest direction. By the end of the process we had gone deep enough into the subject to feel almost like experts on it.</p>
+  <p>To get there, we worked through several project stages and applied a range of design research methods:</p>
+  <ul>
+    <li><strong>On-site observation</strong> of museum visitors and their behaviour.</li>
+    <li><strong>Topic research</strong> into each of the three candidate themes.</li>
+    <li><strong>"Why, why, why" and "how"</strong> questioning to reach the underlying needs.</li>
+    <li><strong>Emotional journey mapping.</strong></li>
+    <li><strong>Personas.</strong></li>
+    <li><strong>Affinity maps.</strong></li>
+  </ul>
+  <p>These methods helped us surface the potential problems of each topic, its strengths and weaknesses, and the opportunities and interesting angles it offered. That comparison is what ultimately guided the final choice of tardigrades.</p>
+  <p>A more detailed breakdown of the full process can be found in the <a class="doc-link" href="../work/wblab/documentation-appendix.pdf" target="_blank" rel="noopener">Documentation Appendix</a>.</p>
 
   <!-- ── GALLERY 1 ──────────────────────────────────────────── -->
   <div class="gallery-block">
@@ -135,28 +163,37 @@
   <div class="gallery-block">
     <h3>Interactions and Water Bear</h3>
     <div class="gallery">
-      <figure><img src="../work//wblab/waterbearlab (5).png" alt="Interaction1" loading="lazy"></figure>
+      <figure><img src="../work/wblab/waterbearlab (5).png" alt="Interaction1" loading="lazy"></figure>
       <figure><img src="../work/wblab/waterbearlab (1).jpeg" alt="Interaction2" loading="lazy"></figure>
       <figure><img src="../work/wblab/waterbearlab (1).png" alt="Interaction3" loading="lazy"></figure>
     </div>
   </div>
 
   <h2>What the experience does</h2>
+  <p>At its core, the experience lets visitors experiment on a water bear specimen in a safe, controlled virtual lab and watch the consequences play out in real time.</p>
   <ul>
     <li>A set of lab test interactions that expose a water bear specimen to extreme conditions.</li>
     <li>Real-time system responses kept within defined, safe limits.</li>
-    <li>Non-linear flow, tests can be completed in any order.</li>
+    <li>Non-linear flow, so tests can be completed in any order.</li>
     <li>Recoverable progress, so exploratory or incorrect actions never break the experience.</li>
   </ul>
 
   <h2>My role</h2>
-  <p>I worked as the <strong>Technical Artist</strong> on the project, which is the bridge between the programmer, the designer and the experience itself. My responsibilities spanned both the engineering and the visual sides:</p>
+  <p>I worked as the <strong>Technical Artist</strong> on the project, the bridge between the programmer, the designer and the experience itself. My responsibilities spanned both the engineering and the visual sides of production:</p>
   <ul>
-    <li>Implementing and optimizing the interactions, editing and writing the game logics.</li>
-    <li>Creating the 3D models, VFX and shaders in Maya, Substance Painter, and Unity itself.</li>
+    <li>Implementing and optimizing the interactions, editing and writing the game logic.</li>
+    <li>Creating the 3D models, VFX and shaders in Maya, Substance Painter and Unity itself.</li>
     <li>Defining and unifying the overall look of the experience.</li>
     <li>Translating design intent into a performant, polished result on standalone hardware.</li>
   </ul>
+
+  <h2>Software used</h2>
+  <div class="stack">
+    <div class="tool"><span class="ic">U</span><span class="tt"><b>Unity</b><span>Engine / Realtime</span></span></div>
+    <div class="tool"><span class="ic">M</span><span class="tt"><b>Maya</b><span>Modelling</span></span></div>
+    <div class="tool"><span class="ic">SP</span><span class="tt"><b>Substance Painter</b><span>Texturing</span></span></div>
+    <div class="tool"><span class="ic">XR</span><span class="tt"><b>Meta XR SDK</b><span>VR / Interactions</span></span></div>
+  </div>
 
   <div class="specs-box">
     <div class="s"><b>Engine</b><span>Unity 6</span></div>
