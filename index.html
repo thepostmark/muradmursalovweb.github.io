@@ -143,6 +143,10 @@
   .badge.v{ background:var(--navy); color:#fff; }
   .badge.trailer{ left:auto; right:14px; background:var(--sky); color:#fff; }
 
+  /* two-image split media (for a card with 2 photos) */
+  .media--split{ display:grid; grid-template-columns:1fr 1fr; gap:0; place-items:stretch; }
+  .media--split img{ width:100%; height:100%; object-fit:cover; }
+
   .card-body{ padding:20px 4px 0; display:flex; flex-direction:column; gap:7px; }
   .card-body .num{ font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; color:var(--sky); text-transform:uppercase; }
   .card-body h3{ font-weight:600; font-size:1.4rem; letter-spacing:-.01em; }
@@ -423,6 +427,36 @@
         <h3>Water Explosion (WIP)</h3>
         <p class="desc">Flip + Pyro simulation of the water explosion in Houdini. Work in progress.</p>
         <div class="specs"><span><b>TOOL</b> Houdini, Nuke</span><span><b>TYPE</b> VFX</span></div>
+      </div>
+    </article>
+
+    <!-- PROJECT 11 — McLaren aero sim (two photos) -->
+    <article class="card" data-reveal>
+      <div class="media media--split">
+        <span class="badge">Simulation</span>
+        <span class="badge trailer">WIP</span>
+        <img src="work/mclaren-1.jpg" alt="McLaren MCL35 aerodynamics simulation 1" loading="lazy">
+        <img src="work/mclaren-2.jpg" alt="McLaren MCL35 aerodynamics simulation 2" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="num">11 — Simulation · WIP</span>
+        <h3>McLaren MCL35 — Aerodynamics Simulation</h3>
+        <p class="desc">Aerodynamic airflow simulation around the McLaren MCL35, exploring how air moves over the car's bodywork. Work in progress.</p>
+        <div class="specs"><span><b>TOOL</b> Houdini</span><span><b>TYPE</b> Simulation</span></div>
+      </div>
+    </article>
+
+    <!-- PROJECT 12 — BMW M5 F90 render -->
+    <article class="card" data-reveal>
+      <div class="media media--img">
+        <span class="badge">3D</span>
+        <img src="work/bmw-m5.jpg" alt="BMW M5 F90 render" loading="lazy">
+      </div>
+      <div class="card-body">
+        <span class="num">12 — Hard Surface Modelling</span>
+        <h3>BMW M5 F90</h3>
+        <p class="desc">Hard surface model and render of the BMW M5 F90.</p>
+        <div class="specs"><span><b>TYPE</b> Hard Surface, Rendering</span></div>
       </div>
     </article>
 
