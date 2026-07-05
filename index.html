@@ -157,8 +157,17 @@
   .card-body .specs span{ font-family:var(--mono); font-size:.7rem; color:var(--muted); }
   .card-body .specs b{ color:var(--navy); font-weight:600; }
 
-  .media--split3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; }
-  .media--split3 img{ width:100%; height:100%; object-fit:cover; }
+  /* three-image collage: big image left, two stacked right */
+  .media--split3{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:3px;
+    place-items:stretch;
+  }
+  .media--split3 img{ width:100%; height:100%; object-fit:cover; min-height:0; }
+  .media--split3 img:first-of-type{ grid-row:1 / 3; }
+  .card:hover .media--split3 img{ transform:scale(1.04); }
 
   /* ── software / stack ────────────────────────────────────────── */
   .stack{ display:flex; flex-wrap:wrap; gap:14px; }
@@ -433,8 +442,8 @@
       </div>
     </article>
 
-    <!-- PROJECT 11 — McLaren aero sim (two photos) -->
-        <article class="card" data-reveal>
+    <!-- PROJECT 11 — McLaren aero sim (wide collage: big photo left, two stacked right) -->
+    <article class="card span" data-reveal>
       <div class="media media--split3">
         <span class="badge">Simulation</span>
         <span class="badge trailer">WIP</span>
