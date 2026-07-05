@@ -157,6 +157,9 @@
   .card-body .specs span{ font-family:var(--mono); font-size:.7rem; color:var(--muted); }
   .card-body .specs b{ color:var(--navy); font-weight:600; }
 
+  .media--split3{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:0; }
+  .media--split3 img{ width:100%; height:100%; object-fit:cover; }
+
   /* ── software / stack ────────────────────────────────────────── */
   .stack{ display:flex; flex-wrap:wrap; gap:14px; }
   .tool{ display:flex; align-items:center; gap:12px; padding:16px 22px; border:1px solid var(--line); border-radius:14px;
@@ -431,17 +434,18 @@
     </article>
 
     <!-- PROJECT 11 — McLaren aero sim (two photos) -->
-    <article class="card" data-reveal>
-      <div class="media media--split">
+        <article class="card" data-reveal>
+      <div class="media media--split3">
         <span class="badge">Simulation</span>
         <span class="badge trailer">WIP</span>
         <img src="work/mclaren-1.jpg" alt="McLaren MCL35 aerodynamics simulation 1" loading="lazy">
         <img src="work/mclaren-2.jpg" alt="McLaren MCL35 aerodynamics simulation 2" loading="lazy">
+        <img src="work/mclaren-3.jpg" alt="McLaren MCL35 aerodynamics simulation 3" loading="lazy">
       </div>
       <div class="card-body">
         <span class="num">11 — Simulation · WIP</span>
-        <h3>McLaren MCL35 F1 - Aerodynamics Simulation(WORK IN PROGRESS)</h3>
-        <p class="desc">Aerodynamic airflow simulation around the F1 McLaren MCL35, exploring how air moves over the car's bodywork. Work in progress.</p>
+        <h3>McLaren MCL35 — Aerodynamics Simulation</h3>
+        <p class="desc">Aerodynamic airflow simulation around the McLaren MCL35, exploring how air moves over the car's bodywork. Work in progress.</p>
         <div class="specs"><span><b>TOOL</b> Houdini</span><span><b>TYPE</b> Simulation</span></div>
       </div>
     </article>
