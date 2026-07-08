@@ -57,6 +57,7 @@
     box-shadow:0 1px 2px rgba(5,22,77,.04), 0 12px 30px rgba(5,22,77,.06); }
   .gallery img{ width:100%; height:auto; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
   .gallery figure:hover img{ transform:scale(1.03); }
+  .gallery figcaption{ padding:12px 16px; font-family:var(--mono); font-size:.76rem; color:var(--muted); background:var(--paper); border-top:1px solid var(--line); }
 
   .stack{ display:flex; flex-wrap:wrap; gap:14px; margin-top:6px; }
   .tool{ display:flex; align-items:center; gap:12px; padding:14px 20px; border:1px solid var(--line); border-radius:14px;
@@ -110,14 +111,18 @@
 
 <section class="case-body wrap">
   <h2>Overview</h2>
-  <p>The low-poly version of this model was originally built for our <a href="water-bear-lab.html" style="color:var(--sky); border-bottom:1px solid var(--sky);">Water Bear Lab</a> project. After drawing some inspiration from my own associations with sci-fi weapon design, I decided to take it further and build a high-poly version instead, texturing it in Substance Painter.</p>
+  <p>The low-poly version of this model was originally modelled for our <a href="water-bear-lab.html" style="color:var(--sky); border-bottom:1px solid var(--sky);">Water Bear Lab</a> project. Due to the shape of the weapon and the overall similarity to the cyberpunk aesthetic, I decided to take it further and build a high-poly version instead, texturing it in a fitting cyberpunk style using Substance Painter.</p>
   <p>The final result was rendered in Arnold, bringing out the detail and materials of the high-poly model.</p>
 
   <div class="gallery-block">
     <h3>Gallery</h3>
     <div class="gallery">
       <figure><img src="../work/render-gun.png" alt="Cyberpunk 2077 handgun render 1" loading="lazy"></figure>
-      <figure><img src="../work/render-gun2.png" alt="Cyberpunk 2077 handgun render 2" loading="lazy"></figure>
+      <figure><img src="../work/render-gun1.png" alt="Cyberpunk 2077 handgun render 2" loading="lazy"></figure>
+      <figure>
+        <img src="../work/render-gun2.png" alt="Cyberpunk 2077 handgun texturing breakdown" loading="lazy">
+        <figcaption>Texture set and UV layout, as seen in Substance Painter.</figcaption>
+      </figure>
     </div>
   </div>
 
